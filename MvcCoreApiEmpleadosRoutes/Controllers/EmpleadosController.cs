@@ -29,5 +29,11 @@ namespace MvcCoreApiEmpleadosRoutes.Controllers
             ViewData["OFICIOS"] = oficios;
             return View(empleados);
         }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            Empleado empleado = await this.service.FindEmpleadoAsync(id);
+            return View(empleado);
+        }
     }
 }
